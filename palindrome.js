@@ -1,14 +1,14 @@
-// str = prompt("Please enter a word or sentence: ")
-
-function palindrome(str) {
-    var re = /[^A-Za-z0-9]/g;
-    str = str.toLowerCase().replace(re, '');
-    var len = str.length;
-    for (var i = 0; i < len/2; i++) {
-      if (str[i] !== str[len - 1 - i]) {
-          return false;
-      }
+function checkPalindrome(inputString) {
+    var len = inputString.length
+    if ((len == 0) || (len == 1)) {
+        return true;
     }
-    return true;
-   }
-   palindrome("A man, a plan, a canal. Panama");
+    else {
+        if(inputString.charAt(0) == inputString.charAt(len-1)){
+            return checkPalindrome(inputString.substring(1,inputString.length-1))
+        }
+        else {
+            return false;
+        }
+    } 
+}
